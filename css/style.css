@@ -363,6 +363,22 @@ body a:hover {
   position: relative;
 }
 
+.third {
+  background-image: url("../img/vandeco.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.fourth {
+  background-image: url("../img/antivor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
 .about-site-section {
   position: fixed;
   top: 0;
@@ -612,7 +628,6 @@ body a:hover {
   height: 600px;
   top: 150px;
   right: 150px;
-  border: 1px solid white;
   border-radius: 15px;
   font-family: "Ubuntu";
   padding: 0 30px;
@@ -629,8 +644,6 @@ body a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 .last .achivment .last-item {
@@ -683,5 +696,30 @@ body a:hover {
 
 .last .achivment .last-item-show {
   opacity: 1;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #102c54;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  border-top: 1px solid white;
 }
 /*# sourceMappingURL=style.css.map */
