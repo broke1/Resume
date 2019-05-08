@@ -1,0 +1,568 @@
+
+@font-face
+    font-family: "Open_Sans"
+    src : url("../fonts/Open_Sans/OpenSans-Regular.ttf")  
+
+@font-face
+    font-family: "Ubuntu"
+    src : url("../fonts/Ubuntu/Ubuntu-Regular.ttf") 
+
+$body-color: rgba(16,44,84,1)
+$primary-text-color: rgba(255,255,255,1)
+$transition:  all 0.4s ease
+
+%font-awessom
+    font-family: FontAwesome
+    color:  white
+    font-size: 25px
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin-right: 10px;
+
+%hover-contacts
+    padding: 20px
+    border-radius: 15px
+
+%back-contacts
+    content: ''
+    position: absolute
+    width: 0%
+    height: 100%
+    top: 0
+    left: 0
+    background-color: $primary-text-color
+    border-radius: 15px
+    transition: $transition
+    z-index: -1 
+
+body
+    background-color: $body-color
+    margin: 0
+    
+
+    a
+        color: $primary-text-color
+        text-decoration: none
+        &:hover
+            color: $primary-text-color
+            text-decoration: none 
+
+.section
+    height: 100vh
+
+
+.grid-header
+    color: $primary-text-color
+    display: grid
+    grid-template-columns: 30% auto repeat(2,320px)
+    grid-template-areas: "item-header-1 . item-header-2 item-header-3"
+    grid-column-gap: 30px
+    align-items: center
+    padding: 0 20px
+
+    .item-header
+        font-family: "Ubuntu" 
+        font-size: 24px
+        padding: 20px 0
+        position: relative
+        text-align: left
+        transition: $transition
+
+        a
+            transition: $transition
+            opacity: 1
+            visibility: visible
+
+    
+    .item-header-1
+        grid-area: item-header-1
+        font-size: 35px
+
+    .item-header-2
+        grid-area: item-header-2
+        text-align: right
+
+
+        &:hover
+            @extend %hover-contacts
+            
+            a
+                color: $body-color
+
+            .header-phone
+                color: $body-color
+                border: 2px solid $body-color
+            
+            &:after
+                width: 100%  
+
+        &:after
+            @extend %back-contacts
+
+        .header-phone 
+            @extend %font-awessom
+            transition: $transition
+            opacity: 1
+  
+
+    .item-header-3
+        grid-area: item-header-3
+        text-align: right
+
+
+        &:hover
+            @extend %hover-contacts
+            
+            a
+                color: $body-color
+
+            .header-mail
+                color: $body-color
+                border: 2px solid $body-color
+            
+            &:after
+                width: 100%  
+
+        &:after
+            @extend %back-contacts
+
+        .header-mail 
+            @extend %font-awessom
+            transition: $transition
+            opacity: 1
+
+        
+            
+
+.item-fixed
+
+    .header-phone
+        position: fixed !important
+        top: 10%
+        right: 30px
+
+    &:after
+        display: none
+
+    .header-mail
+        position: fixed !important
+        top: 20%
+        right: 30px
+
+    &:after
+        display: none
+
+
+.disable
+    opacity: 0 !important
+    visibility: hidden !important
+
+.change
+    color: $body-color !important
+    border: 2px solid $body-color !important
+    background-color: $primary-text-color
+    width: 50px !important
+    height: 50px !important
+    position: relative
+    top: 0
+    right: 0
+    opacity: 1 !important
+    cursor: pointer
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
+    z-index: 2
+    
+
+    
+    &:before
+        font-size: 50px !important
+
+
+    &:after
+        content: ''
+        width: 120%
+        height: 120%
+        background-color: white
+        border-radius: 50%
+        position: absolute
+        top: -6px
+        right: -6px
+        z-index: -1
+        transition: $transition
+
+    &:hover
+
+        &:after
+            width: 320px
+            border-radius: 15px;
+            left: auto;
+            right: -5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px
+            box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
+
+.header-phone.change
+
+    &:hover
+
+        &:after
+            content: '+7 (916) 136-16-71'
+
+.header-mail.change
+
+    &:hover
+
+        &:after
+            content: 'fredswork@list.ru'
+    
+
+.container
+    width: 1200px
+    margin: 0 auto
+
+%opisanie
+    font-size: 25px
+    text-align: justify
+    line-height: 32px
+    text-indent: 30px
+    font-family: "Open_Sans"
+
+.one
+    margin-top: 100px
+
+    .grid-one
+        display: grid
+        grid-template-columns: 50% 50%
+
+        .item-one-img
+            text-align: center
+
+            img
+                transition: $transition 0.5s
+                opacity: 0
+
+        
+        .item-one-text-block
+            display: flex
+
+            .header-obertka
+                border: 1px solid white
+                border-radius: 15px
+                font-family: "Ubuntu" 
+                padding: 0 30px
+                background-color: $primary-text-color
+                color: $body-color
+                transition: $transition
+                opacity: 0
+                transform: translateX(200px)
+
+                .header-inside
+
+                    opacity: 0
+                    transition: $transition 0.5s
+
+                    h1
+                        font-size: 45px
+                        text-align: center
+
+                    p
+                        @extend %opisanie
+                
+    
+    .header-vissible
+
+        .item-one-img
+
+            img
+                opacity: 1
+
+        .item-one-text-block
+
+            .header-obertka
+                opacity: 1
+                transform: translateX(0px)
+
+                .header-inside
+                    opacity: 1
+
+%zagolovok 
+    margin: 100px 0
+    color: $body-color
+    font-family: "Ubuntu" 
+    font-size: 45px
+    padding: 20px
+    background-color: $primary-text-color
+    border-radius: 15px 
+
+.zagolovok
+    display: flex
+    justify-content: center
+
+    p
+        @extend %zagolovok
+        opacity: 0
+        transform: translate(-300px)
+        transition: $transition 0.3s
+    
+    .show_from_left
+        opacity: 1 
+        transform: translateX(0)
+
+.first
+    background-image: url('../img/kuhni.png')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    position: relative
+
+.second
+    background-image: url('../img/fitoestetika.png')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    position: relative
+
+.about-site-section
+    position: fixed
+    top: 0
+    left: 0
+    width: auto
+    height: 100%
+    z-index: 1
+    opacity: 0
+    transition: $transition 
+
+    .about-site
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 50px
+        height: 100% 
+        background-color: rgba(0,0,0,0.7)
+        overflow: hidden
+        transition: width 0.6s ease
+        padding-left: 0px
+
+        .about-zagolovok
+            display: flex
+            justify-content: left
+            opacity: 0
+            transition: $transition
+
+            p
+                @extend %zagolovok
+                font-size: 40px
+                text-transform: capitalize 
+                margin: 30px 0 50px 0
+                background-color: transparent
+                color: $primary-text-color
+                position: relative
+
+                &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    height: 2px
+                    border-radius: 15px
+                    width: 60%
+                    left: 20%
+                    background-color: $primary-text-color
+
+
+            
+
+        .about-opisanie
+            @extend %zagolovok
+            @extend %opisanie 
+            font-size: 20px
+            font-family: "Open_Sans"
+            width: 385px
+            margin: 0
+            opacity: 0
+            transition: $transition
+
+        .about-close
+            display: flex
+            justify-content: left
+            opacity: 0
+            transition: $transition
+
+            .about-link
+                @extend %zagolovok
+                font-size: 30px
+                text-decoration: none
+                text-transform: capitalize 
+                margin: 50px 0
+                padding: 20px 40px
+
+                &:hover
+                    color: $primary-text-color
+                    background-color: $body-color
+
+        .about-arrow
+            position: absolute
+            height: 100%
+            width: 50px
+            border-left: 2px solid $primary-text-color 
+            top: 0
+            right: 0
+            display: flex
+            flex-flow: column
+            justify-content: center 
+            cursor: pointer
+
+            img
+                transition: $transition
+                transform: rotate3d(0, 1, 0, 180deg)
+
+
+    .about-show
+        width: 550px 
+        overflow: hidden
+
+    .about-content-show
+        padding-left: 20px
+
+        .about-zagolovok
+            opacity: 1
+
+        .about-opisanie
+            opacity: 1
+
+        .about-close
+            opacity: 1
+
+        .about-arrow
+
+            img
+               transform: rotate3d(0, 1, 0, 0deg) 
+
+
+.link-pulse
+    animation: pulse 1.5s 
+    animation-delay: 1.5s
+    @keyframes pulse
+        0%
+            box-shadow: 0 0 0 0px rgba(255, 255, 255,0.7)
+        100%
+            box-shadow: 0 0 0 40px rgba(255, 255, 255,0)
+
+.fixed-section
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100% !important
+
+.dots-section 
+    position: fixed
+    display: flex
+    flex-flow: column nowrap
+    justify-content: flex-start
+    top: 35%
+    right: 55px
+    z-index: 2
+    opacity: 0
+    transition: $transition 0.3s
+
+    .dot
+        display: block
+        width: 20px
+        height: 20px
+        border: 3px solid $primary-text-color
+        border-radius: 50px
+        margin-bottom: 10px
+        cursor: pointer
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7)
+        position: relative
+
+        &:after
+            content: ''
+            width: 16px
+            height: 16px
+            position: absolute
+            top: 2px
+            left: 2px
+            border-radius: 50px
+            background-color: $primary-text-color
+            box-shadow: 0 0 5px 7px rgba(255, 255, 255, 0.5)
+            opacity: 0
+            transition: $transition
+
+
+    .dot-active
+
+        &:after
+           opacity: 1 
+        
+.last
+    background-image: url('../img/last-fon.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    position: relative
+
+    .achivment
+        position: absolute
+        width: 500px
+        height: 600px
+        top: 150px
+        right: 150px
+        border: 1px solid $primary-text-color
+        border-radius: 15px
+        font-family: "Ubuntu" 
+        padding: 0 30px
+        background-color: rgba(255,255,255,0.8);
+        color: $body-color
+        transition: $transition
+        display: grid
+        grid-template-columns: 100%
+        grid-template-rows: repeat(5, auto)
+        align-items: center
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8)
+
+        .last-item
+            display: flex
+            flex-flow: row nowrap
+            justify-content: center
+            opacity: 0
+
+            .image-achive 
+                height: 100px
+
+                img 
+                    width: auto
+                    height: 100%
+
+            &:nth-child(1)
+                 transition: $transition 1.8s
+
+            &:nth-child(2)
+                transition: $transition 1.4s
+
+            &:nth-child(3)
+                transition: $transition 1s
+
+            &:nth-child(4)
+                transition: $transition 0.6s
+
+            &:nth-child(5)
+                transition: $transition 0.2s
+
+        .last-item-show
+            opacity: 1
+
+
+                    
+
+
+
+
+
+
+

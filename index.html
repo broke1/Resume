@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Резюме Метелкина Федора</title>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/font-awesome.css"/>
+    <!-- <script type="text/javascript" src="./js/vue.js"></script>  -->
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <section class="main section show-none active">
+        <div class="header">
+            <header-contacts v-bind:contacts="contacts"></header-contacts>
+        </div>
+        <div class="one">
+            <div class="container  grid-one">
+                <div class="item-one item-one-img">
+                    <img src="img/img-left-1.png" alt="item-one-img">
+                </div>
+                <div class="item-one item-one-text-block">
+                    <div class="header-obertka">
+                        <div class="header-inside">
+                            <h1>Привет</h1>
+                            <p>Меня зовут Федор и я web-разработчик. Я люблю свою проффессию, и поэтому
+                                    мне очень интересно изучать новые технологии, совершенствовать свои навыки в существующих и 
+                                    просто наблюдать за развитием web-разработок в целом. Мне нравится помогать людям вместе с ними реализовывать их проекты
+                                    и мечты, будь то блог, визитка или интернет-магазин. Пройти весь путь  от продумывания макета будущего сайта до момента
+                                    набора доменного имени в браузере, а после наблюдать за радостными лицами людей, когда загрузиться их собственная страничка 
+                                    - бесценно.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="about-site-section">
+             <about-block v-bind:settings="settings"></about-block> 
+    </div>
+    <div class="dots-section" >
+        <div class="dot" v-for="dot in dots" :data-index='dot.div'></div> 
+    </div>
+    <section class="first section"></section>
+    <section class="second section"></section>
+    <section class="last section show-none">
+        <div class="achivment">
+            <div class="last-item" v-for="image in images">
+                <div class="image-achive" v-for="img in image.img">
+                    <img :src=img.item_img>
+                </div>
+          </div>
+        </div>
+    </section>
+    
+</body>
+</html>
+
