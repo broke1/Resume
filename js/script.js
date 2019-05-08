@@ -57,6 +57,9 @@ window.addEventListener('load', () => {
         `,
         methods: {
             createLink: function(){
+                if (this.settings.link == 'antivor.ru') {
+                    return `https://antivor.ru/store/rstat/rstat-real-2d.html`;  
+                }
                 return `https://${this.settings.link}/`;
               }
         }
@@ -102,7 +105,7 @@ window.addEventListener('load', () => {
             `
         },
         {
-            link: 'antivor.ru/store/rstat/rstat-real-2d.html',
+            link: 'antivor.ru',
             text: `
             Antivor.ru - сайт-презентация компании. Сам сайт написан на Yii, так что тут у меня появился опыт работы
             с данным фремворком  в частности и с MVC в общем. На странице контактов я работал с API яндекс карт и менял визуальное
