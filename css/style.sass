@@ -363,6 +363,7 @@ body
         overflow: hidden
         transition: width 0.6s ease
         padding-left: 0px
+        visibility: visible
 
         .about-zagolovok
             display: flex
@@ -553,14 +554,34 @@ body
                     width: auto
                     height: 100%
 
+               
+
             &:nth-child(1)
                  transition: $transition 1.8s
+
+                 .image-achive 
+
+                    img 
+                        opacity: 0.6
 
             &:nth-child(2)
                 transition: $transition 1.4s
 
+                .image-achive 
+
+                    img 
+                        opacity: 0.6
+
+
             &:nth-child(3)
                 transition: $transition 1s
+
+                .image-achive 
+
+                    &:nth-child(3)
+
+                        img 
+                            opacity: 0.6 
 
             &:nth-child(4)
                 transition: $transition 0.6s
@@ -586,10 +607,77 @@ body
     font-size: 14px
     border-top: 1px solid $primary-text-color
 
-                    
 
 
+/* Мобильная верстка */     
 
+@media screen and (max-width: 1200px)
+    .container
+        width: 96vw
+        padding: 0 2vw
+
+    .grid-header 
+        grid-template-columns: 25% auto repeat(2, 200px)
+
+        .item-header-1 
+            font-size: 20px
+
+        .item-header 
+            font-size: 15px
+
+@media screen and (max-width: 700px)
+
+    .one 
+        margin-top: 20px
+
+        .grid-one 
+            grid-template-columns: 100%
+
+            .item-one-img
+                display: none
+
+            .item-one-text-block
+                height: 80vh
+
+                .header-obertka
+
+                    .header-inside
+
+                        h1
+                            font-size: 40px
+
+                        p
+                            font-size: 20px
+    .about-site-section
+
+        .about-site
+
+            .about-zagolovok
+
+                p
+                    font-size: 30px
+                    margin: 25px 0 35px 0
+
+
+            .about-opisanie
+                font-size: 15px
+
+            .about-close
+
+                .about-link
+                    font-size: 25px
+                    margin: 35px 0
+
+
+    .item-fixed
+
+        .header-mail
+            top: 22%
+
+    .last 
+        .achivment 
+            top: 30px
+            right: 125px
 
 
 

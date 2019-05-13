@@ -381,6 +381,7 @@ window.addEventListener('load', () => {
                 about_block.classList.add('about-show');    // добавляем разные классы для выдвигания блока
                 about_block.classList.add('about-content-show');
                 about_link.classList.add('link-pulse');   // пульсация кнопки перейти
+                about_block.style.visibility = 'visible'; 
                 break;
 
               case 'unshow' :             // если не нужно, то убираем эти классы
@@ -406,6 +407,7 @@ window.addEventListener('load', () => {
             if (i == current_section) {             // ищем секцию на которую будем пролистывать
                     if (item.classList.contains('show-none')) {   // если секция не содержит блок для выдвижения
                      about_section.style.opacity = '0'; 
+                     about_block.style.visibility = 'hidden'; 
                      show_flag = false;   // то не выдвигаем
                     }
                 }

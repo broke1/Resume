@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Open_Sans";
   src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
@@ -402,6 +403,7 @@ body a:hover {
   -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease;
   padding-left: 0px;
+  visibility: visible;
 }
 
 .about-site-section .about-site .about-zagolovok {
@@ -674,14 +676,26 @@ body a:hover {
   transition: all 0.4s ease 1.8s;
 }
 
+.last .achivment .last-item:nth-child(1) .image-achive img {
+  opacity: 0.6;
+}
+
 .last .achivment .last-item:nth-child(2) {
   -webkit-transition: all 0.4s ease 1.4s;
   transition: all 0.4s ease 1.4s;
 }
 
+.last .achivment .last-item:nth-child(2) .image-achive img {
+  opacity: 0.6;
+}
+
 .last .achivment .last-item:nth-child(3) {
   -webkit-transition: all 0.4s ease 1s;
   transition: all 0.4s ease 1s;
+}
+
+.last .achivment .last-item:nth-child(3) .image-achive:nth-child(3) img {
+  opacity: 0.6;
 }
 
 .last .achivment .last-item:nth-child(4) {
@@ -721,5 +735,63 @@ body a:hover {
           align-items: center;
   font-size: 14px;
   border-top: 1px solid white;
+}
+
+/* Мобильная верстка */
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 96vw;
+    padding: 0 2vw;
+  }
+  .grid-header {
+    -ms-grid-columns: 25% auto (200px)[2];
+        grid-template-columns: 25% auto repeat(2, 200px);
+  }
+  .grid-header .item-header-1 {
+    font-size: 20px;
+  }
+  .grid-header .item-header {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .one {
+    margin-top: 20px;
+  }
+  .one .grid-one {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  .one .grid-one .item-one-img {
+    display: none;
+  }
+  .one .grid-one .item-one-text-block {
+    height: 80vh;
+  }
+  .one .grid-one .item-one-text-block .header-obertka .header-inside h1 {
+    font-size: 40px;
+  }
+  .one .grid-one .item-one-text-block .header-obertka .header-inside p {
+    font-size: 20px;
+  }
+  .about-site-section .about-site .about-zagolovok p {
+    font-size: 30px;
+    margin: 25px 0 35px 0;
+  }
+  .about-site-section .about-site .about-opisanie {
+    font-size: 15px;
+  }
+  .about-site-section .about-site .about-close .about-link {
+    font-size: 25px;
+    margin: 35px 0;
+  }
+  .item-fixed .header-mail {
+    top: 22%;
+  }
+  .last .achivment {
+    top: 30px;
+    right: 125px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
