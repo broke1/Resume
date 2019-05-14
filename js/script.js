@@ -8,11 +8,11 @@ window.addEventListener('load', () => {
         <div class="grid-header">
                 <div class="item-header item-header-1">{{contacts.name}}</div>
                 <div class="item-header item-header-2" v-bind:class=contacts.fixed>
-                    <a v-bind:href=contacts.link_phone_compact><i class="fa fa-mobile header-phone" v-bind:class=contacts.change></i></a>
+                    <a v-bind:href=contacts.link_phone_compact><i class="fa fa-mobile header-phone" v-bind:class="{ change: contacts.change, show_icon: contacts.show }"></i></a>
                     <a v-bind:href=contacts.link_phone_compact v-bind:class=contacts.seen>{{contacts.link_phone}}</a>
                 </div>
                 <div class="item-header item-header-3" v-bind:class=contacts.fixed>
-                <a v-bind:href=contacts.link_mail_compact><i class="fa fa-envelope-o header-mail" v-bind:class=contacts.change></i></a>
+                <a v-bind:href=contacts.link_mail_compact><i class="fa fa-envelope-o header-mail" v-bind:class="{ change: contacts.change, show_icon: contacts.show}"></i></a>
                     <a v-bind:href=contacts.link_mail_compact v-bind:class=contacts.seen>{{contacts.link_mail}}</a>
                 </div>
         </div>
@@ -31,7 +31,8 @@ window.addEventListener('load', () => {
                 link_mail_compact: 'mailto:fredswork@list.ru',
                 fixed: 'active',
                 seen: 'active',
-                change: 'active'
+                change: false,
+                show: false
             }
         }
      })
@@ -193,8 +194,11 @@ window.addEventListener('load', () => {
      let show_flag = false;   // вспомогательный флаг, который показывает нужно ли выдвигать блок
      let current_settings = {};  // переменная в которой хранится нужный объект для блока с описанием
      let obj_dots = [];  // массив всех элементов dot
-     let last_items = document.querySelectorAll('.last-item');
-     let only_items = document.querySelector('.last-item');
+     let last_items = document.querySelectorAll('.last-item'); // все строки в последнем блоке
+     let only_items = document.querySelector('.last-item');   // только первая строка в последнем блоке
+     let icons_menu = document.querySelectorAll('.item-header .fa');  // иконки телефона пи почты в хедере
+     let client_height = screen.height; // высота экрана пользователя
+     
 
 
      obj_all_section.forEach(function(item,i){  // пробегаемся по всем секциям
@@ -207,6 +211,7 @@ window.addEventListener('load', () => {
         obj_section[i] = item.getBoundingClientRect().top;  // и заносим в массив все верхнии позиции всех секций
      });
  
+    if (screen.width > 500) {   // если это не мобильное устройство, то
     window.addEventListener('scroll', function() {   // при прокрутке страницы 
         document.querySelector('.dots-section').style.opacity = '1';  
         if (window.pageYOffset>height_header) {  // если вверх экрана опустился ниже шапки
@@ -288,6 +293,68 @@ window.addEventListener('load', () => {
 
         last_scroll = current_scroll;  // обновляем позицию текущего скрола, чтобы вновь потом понять куда листает пользователь
     });
+    } else {
+        let current_mobile = 0;
+        let step = 0;
+        console.log(obj_section);
+        obj_section.forEach(function(item,i,){  // пробегаемся по массиву секций
+            if (step+1 == i) {
+                current_mobile = item/2;  
+            }
+        });
+        window.addEventListener('scroll', function() { 
+
+            if (window.pageYOffset>height_header) {  // если вверх экрана опустился ниже шапки
+                if (!first_flag){   // то проверяем если переменной false
+                    change_location('.item-header .fa');  // то вызываем функцию которая меняет положение элементов
+                        icons_menu.forEach(function(item,i){
+                           // console.log(item);
+                            header.contacts.show = true;
+                            //item.classList.add('show_icon');
+                        });
+                    first_flag = true;   // и присваиваем переменной true
+                }
+            } else {   // если поднялись наверх
+                if (first_flag){    // то проверяем если перменная true 
+                change_location('.item-header .fa');   // то вызываем функцию смены положения
+                    icons_menu.forEach(function(item,i){
+                        header.contacts.show = false;
+                    });
+                first_flag = false;   // а переменную переводим в false
+                }
+            }
+
+            current_scroll = window.pageYOffset;  // заносим в переменную текущию позицию скрола
+
+            if (current_scroll >= last_scroll) {  // если текущяя позиция скролла больше предыдущей (значит скролим вниз)
+                //console.log(`${current_scroll}  --- ${current_mobile}`);   
+                if (current_scroll > current_mobile) {
+
+                    if (step<obj_settings.length) {
+                    about_v_section.settings = obj_settings[step];
+                    about_section.classList.add('show_about');
+                    step = step+1;
+                    obj_section.forEach(function(item,i,){  // пробегаемся по массиву секций
+                        if (step+1 == i) {
+                            current_mobile = current_mobile + client_height;  
+                        }
+                    });
+                  //  console.log(`${current_mobile}`);
+                } else {
+                    show_about_block('unshow');
+                    about_section.style.opacity = '0';
+                    about_section.classList.remove('show_about');
+                }
+
+
+            }
+            } else {
+            }
+
+            last_scroll = current_scroll;  // обновляем позицию текущего скрола, чтобы вновь потом понять куда листает пользователь
+
+        });
+    }
 
     function easyScroll(scrollTo,direction,show_flag) {  // функция пролистывания страницы до нужноной секции
         let  i = current_top;   // начальное значение скролла присваиваем текущее верхнее положение секции
@@ -356,10 +423,10 @@ window.addEventListener('load', () => {
             setTimeout(() => {   // а затем через нескоторое время (после анимации)
                 header.contacts.fixed = 'item-fixed';  // зафиксировать блок справа
                 header.contacts.seen = 'disable';  // исчезнет телефон сверху
-                header.contacts.change = 'change'   // измениться значок справа
+                header.contacts.change = true;   // измениться значок справа
             }, 400);  
         } else {           // если уже изменилось, то 
-            header.contacts.change = 'active';  // то меняем класс элемнета по умолчанию
+            header.contacts.change = false;  // то меняем класс элемнета по умолчанию
             headers.forEach((item)=>{   // пробегаемся по всем элементам 
                 item.style.opacity = '0';  // и скрываем их
             });

@@ -794,4 +794,61 @@ body a:hover {
     right: 125px;
   }
 }
+
+@media screen and (max-width: 430px) {
+  .grid-header {
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 50px 50px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: "item-header-1   item-header-2 . " ". item-header-3  .";
+    grid-column-gap: 0px;
+  }
+  .grid-header .item-header a:first-child i {
+    visibility: hidden;
+  }
+  .grid-header .item-header a:first-child .show_icon {
+    visibility: visible !important;
+  }
+  .one .grid-one .item-one-text-block .header-obertka .header-inside h1 {
+    font-size: 30px;
+  }
+  .one .grid-one .item-one-text-block .header-obertka .header-inside p {
+    font-size: 15px;
+  }
+  .last .achivment {
+    right: 30px;
+    width: 300px;
+  }
+  .last .achivment .last-item {
+    opacity: 1;
+  }
+  .last .achivment .last-item .image-achive {
+    height: 70px;
+  }
+  .show_about {
+    opacity: 1;
+  }
+  .about-site-section {
+    width: 95vw;
+  }
+  .about-site-section .about-site .about-zagolovok p {
+    font-size: 20px;
+    margin: 10px 0 15px 0;
+  }
+  .about-site-section .about-site .about-opisanie {
+    width: 60vw;
+    font-size: 13px;
+    height: 70vh;
+    overflow-y: scroll;
+  }
+  .about-site-section .about-site .about-close .about-link {
+    font-size: 15px;
+    margin: 15px 0;
+    padding: 15px 30px;
+  }
+  .about-site-section .about-show {
+    width: 90vw;
+  }
+}
 /*# sourceMappingURL=style.css.map */
