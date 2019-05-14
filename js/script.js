@@ -327,19 +327,18 @@ window.addEventListener('load', () => {
             current_scroll = window.pageYOffset;  // заносим в переменную текущию позицию скрола
 
             if (current_scroll >= last_scroll) {  // если текущяя позиция скролла больше предыдущей (значит скролим вниз)
-                //console.log(`${current_scroll}  --- ${current_mobile}`);   
-                if (current_scroll > current_mobile) {
-
-                    if (step<obj_settings.length) {
-                    about_v_section.settings = obj_settings[step];
-                    about_section.classList.add('show_about');
+                //console.log(`${current_scroll}  --- ${current_mobile}`);  
+                if (step<0) {
                     step = step+1;
-                    obj_section.forEach(function(item,i,){  // пробегаемся по массиву секций
-                        if (step+1 == i) {
-                            current_mobile = current_mobile + client_height;  
-                        }
-                    });
-                  //  console.log(`${current_mobile}`);
+                }
+                if (current_scroll > current_mobile) {  // если скрол оказался ниже чем середина следующего блока
+
+                    if (step<obj_settings.length) { // то проверяем если текущяя позиция секции меньше чем длина массива, то
+                    about_v_section.settings = obj_settings[step]; // то на основе этого шага выбираем данные для показа в секции о сайте
+                    about_section.style.opacity = '1';
+                    about_section.classList.add('show_about'); // показываем секцию о сайте
+                    step = step+1;  // ставим указатель на следующию секцию
+                    current_mobile = current_mobile + client_height;  // и значение середины следующего блока меняем  
                 } else {
                     show_about_block('unshow');
                     about_section.style.opacity = '0';
@@ -349,6 +348,31 @@ window.addEventListener('load', () => {
 
             }
             } else {
+                if (step==obj_settings.length) {
+                    step = step-1;
+                }
+
+                if (current_scroll < current_mobile) {  // если скрол оказался выше чем середина следующего блока
+                
+               
+
+                if (step>=0) { // то проверяем если текущяя позиция секции больше единицы, то
+                    about_v_section.settings = obj_settings[step]; // то на основе этого шага выбираем данные для показа в секции о сайте
+                    about_section.style.opacity = '1';
+                    about_section.classList.add('show_about'); // показываем секцию о сайте
+                    step = step-1;  // ставим указатель на следующию секцию
+                    current_mobile = current_mobile - client_height;  // и значение середины следующего блока меняем  
+                } else {
+                    show_about_block('unshow');
+                    about_section.style.opacity = '0';
+                    about_section.classList.remove('show_about');
+                }
+
+
+            }
+
+                console.log(`${current_mobile} - ${current_scroll}`);
+
             }
 
             last_scroll = current_scroll;  // обновляем позицию текущего скрола, чтобы вновь потом понять куда листает пользователь
