@@ -296,7 +296,6 @@ window.addEventListener('load', () => {
     } else {
         let current_mobile = 0;
         let step = 0;
-        console.log(obj_section);
         obj_section.forEach(function(item,i,){  // пробегаемся по массиву секций
             if (step+1 == i) {
                 current_mobile = item/2;  
@@ -331,8 +330,26 @@ window.addEventListener('load', () => {
                 if (step<0) {
                     step = step+1;
                 }
-                if (current_scroll > current_mobile) {  // если скрол оказался ниже чем середина следующего блока
 
+               
+                 if (current_scroll >= (document.body.scrollHeight-client_height-30)) {
+                    show_about_block('unshow');
+                    about_section.style.opacity = '0';
+                    about_section.classList.remove('show_about');
+                    step = 4;
+                   // current_mobile = current_mobile - client_height; 
+                }
+
+                if (current_mobile > (document.body.scrollHeight-client_height)) {
+                    current_mobile = current_mobile - client_height; 
+                }
+
+                if (current_mobile < 0){
+                    current_mobile = current_mobile + client_height;  
+                }
+
+                if (current_scroll > current_mobile) {  // если скрол оказался ниже чем середина следующего блока
+                    
                     if (step<obj_settings.length) { // то проверяем если текущяя позиция секции меньше чем длина массива, то
                     about_v_section.settings = obj_settings[step]; // то на основе этого шага выбираем данные для показа в секции о сайте
                     about_section.style.opacity = '1';
@@ -345,11 +362,24 @@ window.addEventListener('load', () => {
                     about_section.classList.remove('show_about');
                 }
 
+                
 
             }
+
+                //console.log(`${current_mobile} - ${current_scroll} - ${step}`);
+
             } else {
                 if (step==obj_settings.length) {
                     step = step-1;
+                }
+
+
+
+                if (current_scroll < 20) {
+                    show_about_block('unshow');
+                    about_section.style.opacity = '0';
+                    about_section.classList.remove('show_about');
+                    step = 0;
                 }
 
                 if (current_scroll < current_mobile) {  // если скрол оказался выше чем середина следующего блока
@@ -371,7 +401,7 @@ window.addEventListener('load', () => {
 
             }
 
-                console.log(`${current_mobile} - ${current_scroll}`);
+               // console.log(`${current_mobile} - ${current_scroll} - ${step}`);
 
             }
 

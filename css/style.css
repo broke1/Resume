@@ -850,5 +850,67 @@ body a:hover {
   .about-site-section .about-show {
     width: 90vw;
   }
+  .header-phone.change:hover:after {
+    width: 220px;
+    font-size: 15px;
+  }
+  .header-mail.change:hover:after {
+    width: 220px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .grid-header {
+    -ms-grid-columns: 45% 55%;
+        grid-template-columns: 45% 55%;
+  }
+  .about-site-section .about-site .about-zagolovok p {
+    padding: 10px 20px;
+  }
+  .last .achivment {
+    right: 10px;
+    width: 290px;
+    height: 580px;
+    top: 10px;
+  }
+  .last .achivment .last-item {
+    opacity: 1;
+  }
+  .last .achivment .last-item .image-achive {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .grid-header {
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "item-header-1 . " " item-header-2 item-header-3";
+  }
+  .grid-header .item-header a:first-child {
+    display: none;
+  }
+  .grid-header .item-header-2 {
+    text-align: left;
+  }
+  .grid-header .item-fixed a:first-child {
+    display: block;
+  }
+  .grid-header .item-fixed .header-mail {
+    top: 25%;
+  }
+  .last .achivment {
+    right: 5px;
+    width: 250px;
+    height: 500px;
+  }
+  .one {
+    margin-top: 5px;
+  }
+  .one .grid-one .item-one-text-block .header-obertka {
+    overflow: scroll;
+    height: 75vh;
+  }
 }
 /*# sourceMappingURL=style.css.map */
