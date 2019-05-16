@@ -198,8 +198,13 @@ window.addEventListener('load', () => {
      let only_items = document.querySelector('.last-item');   // только первая строка в последнем блоке
      let icons_menu = document.querySelectorAll('.item-header .fa');  // иконки телефона пи почты в хедере
      let client_height = screen.height; // высота экрана пользователя
+     let direction_flag = false;  // флаг который покажет что прокрутка произошла посредине скрола
      
 
+
+     
+     window.scrollTo(0, 0); // при обновлении страницы сразу пролистываем вверх, чтобы скрипт работал исправно
+     
 
      obj_all_section.forEach(function(item,i){  // пробегаемся по всем секциям
         dots_section.dots.push({div:i});    // и заполняем экземпляр vue количеством точек равным количеству секций
@@ -207,7 +212,7 @@ window.addEventListener('load', () => {
 
 
 
-      document.querySelectorAll('.section').forEach(function(item,i){ // пробегаемся пов сем секциям
+      document.querySelectorAll('.section').forEach(function(item,i){ // пробегаемся по всем секциям
         obj_section[i] = item.getBoundingClientRect().top;  // и заносим в массив все верхнии позиции всех секций
      });
  
@@ -293,11 +298,11 @@ window.addEventListener('load', () => {
 
         last_scroll = current_scroll;  // обновляем позицию текущего скрола, чтобы вновь потом понять куда листает пользователь
     });
-    } else {
-        let current_mobile = 0;
-        let step = 0;
+    } else {    // а если мобильное устройство
+        let current_mobile = 0; 
+        let step = -1;
         obj_section.forEach(function(item,i,){  // пробегаемся по массиву секций
-            if (step+1 == i) {
+            if (step+2 == i) {   
                 current_mobile = item/2;  
             }
         });
@@ -326,17 +331,17 @@ window.addEventListener('load', () => {
             current_scroll = window.pageYOffset;  // заносим в переменную текущию позицию скрола
 
             if (current_scroll >= last_scroll) {  // если текущяя позиция скролла больше предыдущей (значит скролим вниз)
-                //console.log(`${current_scroll}  --- ${current_mobile}`);  
-                if (step<0) {
-                    step = step+1;
-                }
-
+                 
+                // if (step<0) {
+                //     step = step+1;
+                // }
                
                  if (current_scroll >= (document.body.scrollHeight-client_height-30)) {
                     show_about_block('unshow');
                     about_section.style.opacity = '0';
                     about_section.classList.remove('show_about');
                     step = 4;
+                    direction_flag = true;
                    // current_mobile = current_mobile - client_height; 
                 }
 
@@ -348,13 +353,22 @@ window.addEventListener('load', () => {
                     current_mobile = current_mobile + client_height;  
                 }
 
+
+                //console.log(`${current_scroll} - ${current_mobile}`);
+
                 if (current_scroll > current_mobile) {  // если скрол оказался ниже чем середина следующего блока
+                 
+                    if (step<obj_settings.length-1) { // то проверяем если текущяя позиция секции меньше чем длина массива, то
+                    if (!direction_flag) {
+                        step = step+1;  // ставим указатель на следующию секцию
+                    } else {
+                        direction_flag = false;
+                    }
                     
-                    if (step<obj_settings.length) { // то проверяем если текущяя позиция секции меньше чем длина массива, то
                     about_v_section.settings = obj_settings[step]; // то на основе этого шага выбираем данные для показа в секции о сайте
                     about_section.style.opacity = '1';
                     about_section.classList.add('show_about'); // показываем секцию о сайте
-                    step = step+1;  // ставим указатель на следующию секцию
+                    
                     current_mobile = current_mobile + client_height;  // и значение середины следующего блока меняем  
                 } else {
                     show_about_block('unshow');
@@ -369,28 +383,34 @@ window.addEventListener('load', () => {
                 //console.log(`${current_mobile} - ${current_scroll} - ${step}`);
 
             } else {
-                if (step==obj_settings.length) {
-                    step = step-1;
-                }
-
-
+                // if (step==obj_settings.length) {
+                //     step = step-1;
+                // }
 
                 if (current_scroll < 20) {
                     show_about_block('unshow');
                     about_section.style.opacity = '0';
                     about_section.classList.remove('show_about');
-                    step = 0;
+                    step = -1;
+                    direction_flag = false;
                 }
 
                 if (current_scroll < current_mobile) {  // если скрол оказался выше чем середина следующего блока
                 
                
 
-                if (step>=0) { // то проверяем если текущяя позиция секции больше единицы, то
+                if (step>0) { // то проверяем если текущяя позиция секции больше нуля, то
+
+                    if (direction_flag) {
+                        step = step-1;  // ставим указатель на следующию секцию
+                    } else {
+                        direction_flag = true;
+                    }
+                  
                     about_v_section.settings = obj_settings[step]; // то на основе этого шага выбираем данные для показа в секции о сайте
                     about_section.style.opacity = '1';
                     about_section.classList.add('show_about'); // показываем секцию о сайте
-                    step = step-1;  // ставим указатель на следующию секцию
+                   
                     current_mobile = current_mobile - client_height;  // и значение середины следующего блока меняем  
                 } else {
                     show_about_block('unshow');
