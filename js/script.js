@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
         data: {
             height: 'height:1000px',
             contacts: {
-                name: 'Метелкин Фёдор',
+                name: 'Metelkin Fedor',
                 link_phone: '+7 (916) 136-16-71',
                 link_phone_compact: 'tel:+79161361671', 
                 link_mail: 'fredswork@list.ru',

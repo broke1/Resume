@@ -174,8 +174,6 @@ body a:hover {
   right: 0;
   opacity: 1 !important;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
   z-index: 2;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -249,7 +247,7 @@ body a:hover {
 
 .one .grid-one .item-one-text-block .header-obertka .header-inside p, .about-site-section .about-site .about-opisanie {
   font-size: 25px;
-  text-align: justify;
+  text-align: left;
   line-height: 32px;
   text-indent: 30px;
   font-family: "Open_Sans";
@@ -461,11 +459,11 @@ body a:hover {
   background-color: transparent;
   color: white;
   position: relative;
-  text-transform: uppercase;
   font-weight: bold;
 }
 
 .about-site-section .about-site .about-opisanie {
+  text-indent: 0;
   font-size: 18px;
   font-family: "Open_Sans";
   width: 385px;
@@ -475,6 +473,7 @@ body a:hover {
   transition: all 0.4s ease;
   background-color: none;
   color: white;
+  margin-left: 20px;
 }
 
 .about-site-section .about-site .about-close {
@@ -487,6 +486,7 @@ body a:hover {
   opacity: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  margin-left: 20px;
 }
 
 .about-site-section .about-site .about-close .about-link {
