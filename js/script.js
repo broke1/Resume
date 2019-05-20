@@ -49,10 +49,10 @@ window.addEventListener('load', () => {
                 <p>{{settings.text}}</p>
             </div>
             <div class="about-close">
-                <a v-bind:href=createLink() target="_blank" class="about-link">Перейти</a>
+                <a v-bind:href=createLink() target="_blank" class="about-link">Перейти на сайт</a>
             </div>
             <div class="about-arrow">
-                <img src="img/arrow-left.svg">
+                <img src="img/arrow-left.png">
             </div>
         </div>
         `,
