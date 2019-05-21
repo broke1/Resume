@@ -7,21 +7,26 @@
     font-family: "Ubuntu"
     src : url("../fonts/Ubuntu/Ubuntu-Regular.ttf") 
 
+@font-face
+    font-family: "Marmelad"
+    src : url("../fonts/Marmelad/Marmelad-Regular.ttf") 
+
 $body-color: rgba(16,44,84,1)
 $primary-text-color: rgba(255,255,255,1)
 $transition:  all 0.4s ease
 
 %font-awessom
-    font-family: FontAwesome
+    // font-family: FontAwesome
     color:  white
-    font-size: 25px
-    border: 2px solid white;
-    padding: 5px;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    margin-right: 10px;
+    // font-size: 25px
+    padding: 5px
+    // border-radius: 50%
+    width: 30px
+    height: 30px
+    text-align: center
+    margin-right: 10px
+    transform: scale(1)
+    transition: $transition
 
 %hover-contacts
     padding: 20px
@@ -65,7 +70,7 @@ body
     padding: 0 20px
 
     .item-header
-        font-family: "Ubuntu" 
+        font-family: "Marmelad" 
         font-size: 24px
         padding: 20px 0
         position: relative
@@ -76,6 +81,7 @@ body
             transition: $transition
             opacity: 1
             visibility: visible
+            display: flex
 
     
     .item-header-1
@@ -85,6 +91,10 @@ body
     .item-header-2
         grid-area: item-header-2
         text-align: right
+        display: flex
+        flex-flow: row
+        justify-content: right
+        align-items: center
 
 
         &:hover
@@ -112,6 +122,10 @@ body
     .item-header-3
         grid-area: item-header-3
         text-align: right
+        display: flex
+        flex-flow: row
+        justify-content: right
+        align-items: center
 
 
         &:hover
@@ -155,7 +169,7 @@ body
 
     .header-mail
         position: fixed !important
-        top: 20%
+        top: 18%
         right: 30px
 
     &:after
@@ -168,10 +182,8 @@ body
 
 .change
     color: $primary-text-color !important
-    border: 2px solid $primary-text-color !important
     background-color: transparent
-    width: 50px !important
-    height: 50px !important
+    transform: scale(1.5) !important
     position: relative
     top: 0
     right: 0
@@ -207,7 +219,7 @@ body
     &:hover
 
         &:after
-            width: 275px
+            width: 180px
             left: auto
             right: 60px
             display: flex
@@ -215,11 +227,12 @@ body
             justify-content: flex-start
             padding-left: 20px
             opacity: 1
+            font-size: 20px
 
-.change.fa-mobile
+// .change.fa-mobile
 
-    &:before
-       font-size: 45px !important 
+//     &:before
+//        font-size: 45px !important 
 
 
 .header-phone.change
@@ -236,6 +249,9 @@ body
         &:after
             content: 'fredswork@list.ru'
     
+.non-margin
+    margin: 0
+    padding: 0
 
 .container
     width: 1200px
@@ -272,7 +288,7 @@ body
             display: flex
 
             .header-obertka
-                font-family: "Ubuntu" 
+                font-family: "Marmelad" 
                 color: $primary-text-color
                 transition: $transition
                 opacity: 0
@@ -317,7 +333,7 @@ body
 %zagolovok 
     margin: 100px 0
     color: $body-color
-    font-family: "Ubuntu" 
+    font-family: "Marmelad" 
     font-size: 45px
     padding: 20px
     background-color: $primary-text-color
@@ -351,7 +367,7 @@ body
         left: 0
         width: 100%
         height: 100%
-        background-color: rgba(0,0,0,0.6)
+        background-color: rgba(0,0,0,0.8)
         z-index: 0
 
 .first
@@ -365,7 +381,7 @@ body
     background-image: url('../img/fitoestetika.png')
     background-size: cover
     background-repeat: no-repeat
-    background-position: center
+    background-position: right
     position: relative
 
 .third
@@ -382,7 +398,16 @@ body
     background-position: center
     position: relative
 
-
+.back-img
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    display: flex
+    flex-flow: row
+    justify-content: center
+    align-items: center
    
 .about-site-section
     position: fixed
@@ -598,7 +623,7 @@ body
         top: 150px
         right: 20%
         border-radius: 15px
-        font-family: "Ubuntu" 
+        font-family: "Marmelad" 
         padding: 0 30px
         background-color: rgba(255,255,255,0.8);
         color: $body-color
@@ -776,6 +801,12 @@ body
 
                     .show_icon
                         visibility: visible !important
+
+        .item-header-2
+            justify-content: left
+
+        .item-header-3
+            justify-content: left
 
 
     .one 

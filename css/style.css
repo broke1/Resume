@@ -9,17 +9,22 @@
   src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Marmelad";
+  src: url("../fonts/Marmelad/Marmelad-Regular.ttf");
+}
+
 .grid-header .item-header-2 .header-phone, .grid-header .item-header-3 .header-mail {
-  font-family: FontAwesome;
   color: white;
-  font-size: 25px;
-  border: 2px solid white;
   padding: 5px;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   text-align: center;
   margin-right: 10px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .grid-header .item-header-2:hover, .grid-header .item-header-3:hover {
@@ -75,7 +80,7 @@ body a:hover {
 }
 
 .grid-header .item-header {
-  font-family: "Ubuntu";
+  font-family: "Marmelad";
   font-size: 24px;
   padding: 20px 0;
   position: relative;
@@ -89,6 +94,9 @@ body a:hover {
   transition: all 0.4s ease;
   opacity: 1;
   visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .grid-header .item-header-1 {
@@ -103,6 +111,19 @@ body a:hover {
   -ms-grid-column: 3;
   grid-area: item-header-2;
   text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .grid-header .item-header-2:hover:after {
@@ -120,6 +141,19 @@ body a:hover {
   -ms-grid-column: 4;
   grid-area: item-header-3;
   text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .grid-header .item-header-3:hover:after {
@@ -150,7 +184,7 @@ body a:hover {
 
 .item-fixed .header-mail {
   position: fixed !important;
-  top: 20%;
+  top: 18%;
   right: 30px;
 }
 
@@ -165,10 +199,9 @@ body a:hover {
 
 .change {
   color: white !important;
-  border: 2px solid white !important;
   background-color: transparent;
-  width: 50px !important;
-  height: 50px !important;
+  -webkit-transform: scale(1.5) !important;
+          transform: scale(1.5) !important;
   position: relative;
   top: 0;
   right: 0;
@@ -212,7 +245,7 @@ body a:hover {
 }
 
 .change:hover:after {
-  width: 275px;
+  width: 180px;
   left: auto;
   right: 60px;
   display: -webkit-box;
@@ -226,10 +259,7 @@ body a:hover {
           justify-content: flex-start;
   padding-left: 20px;
   opacity: 1;
-}
-
-.change.fa-mobile:before {
-  font-size: 45px !important;
+  font-size: 20px;
 }
 
 .header-phone.change:hover:after {
@@ -238,6 +268,11 @@ body a:hover {
 
 .header-mail.change:hover:after {
   content: 'fredswork@list.ru';
+}
+
+.non-margin {
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -286,7 +321,7 @@ body a:hover {
 }
 
 .one .grid-one .item-one-text-block .header-obertka {
-  font-family: "Ubuntu";
+  font-family: "Marmelad";
   color: white;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -334,7 +369,7 @@ body a:hover {
 .zagolovok p, .about-site-section .about-site .about-zagolovok p, .about-site-section .about-site .about-close .about-link {
   margin: 100px 0;
   color: #102c54;
-  font-family: "Ubuntu";
+  font-family: "Marmelad";
   font-size: 45px;
   padding: 20px;
   background-color: white;
@@ -378,7 +413,7 @@ body a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 0;
 }
 
@@ -394,7 +429,7 @@ body a:hover {
   background-image: url("../img/fitoestetika.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
   position: relative;
 }
 
@@ -412,6 +447,27 @@ body a:hover {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+}
+
+.back-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .about-site-section {
@@ -688,7 +744,7 @@ body a:hover {
   top: 150px;
   right: 20%;
   border-radius: 15px;
-  font-family: "Ubuntu";
+  font-family: "Marmelad";
   padding: 0 30px;
   background-color: rgba(255, 255, 255, 0.8);
   color: #102c54;
@@ -872,6 +928,16 @@ body a:hover {
   }
   .grid-header .item-header a:first-child .show_icon {
     visibility: visible !important;
+  }
+  .grid-header .item-header-2 {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+  .grid-header .item-header-3 {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
   }
   .one .grid-one .item-one-text-block .header-obertka .header-inside h1 {
     font-size: 30px;
