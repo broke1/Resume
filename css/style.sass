@@ -117,6 +117,10 @@ body
             @extend %font-awessom
             transition: $transition
             opacity: 1
+
+            span
+                position: absolute
+                opacity: 0
   
 
     .item-header-3
@@ -153,6 +157,10 @@ body
                 font-size: 20px
                 position: relative
                 top: -2px
+
+            span
+                position: absolute
+                opacity: 0
 
         
             
@@ -201,33 +209,45 @@ body
         top: 0px !important
 
 
-    &:after
-        content: ''
-        width: 120%
-        height: 120%
-        background-color: transparent
-        border-radius: 0
-        position: absolute
-        top: -6px
-        right: 60px
-        z-index: -1
-        transition: $transition
-        border-bottom: 2px solid $primary-text-color
-        opacity: 0
+    // &:after
+    //     content: ''
+    //     width: 120%
+    //     height: 120%
+    //     background-color: transparent
+    //     border-radius: 0
+    //     position: absolute
+    //     top: -6px
+    //     right: 60px
+    //     z-index: -1
+    //     transition: $transition
+    //     border-bottom: 2px solid $primary-text-color
+    //     opacity: 0
 
+    span
+        right: 40px
+        width: 0
+        border-bottom: 2px solid white
+        transition: $transition
+        white-space: nowrap
 
     &:hover
 
-        &:after
-            width: 180px
-            left: auto
-            right: 60px
-            display: flex
-            align-items: center
-            justify-content: flex-start
-            padding-left: 20px
-            opacity: 1
-            font-size: 20px
+        span
+            opacity: 1 !important
+            width: 230px
+
+    
+
+        // &:after
+        //     width: 180px
+        //     left: auto
+        //     right: 60px
+        //     display: flex
+        //     align-items: center
+        //     justify-content: flex-start
+        //     padding-left: 20px
+        //     opacity: 1
+        //     font-size: 20px
 
 // .change.fa-mobile
 
@@ -235,19 +255,19 @@ body
 //        font-size: 45px !important 
 
 
-.header-phone.change
+// .header-phone.change
 
-    &:hover
+//     &:hover
 
-        &:after
-            content: '+7 (916) 136-16-71'
+//         &:after
+//             content: '+7 (916) 136-16-71'
 
-.header-mail.change
+// .header-mail.change
 
-    &:hover
+//     &:hover
 
-        &:after
-            content: 'fredswork@list.ru'
+//         &:after
+//             content: 'fredswork@list.ru'
     
 .non-margin
     margin: 0
@@ -439,8 +459,7 @@ body
 
             p
                 @extend %zagolovok
-                font-size: 40px
-                text-transform: capitalize 
+                font-size: 40px 
                 margin: 30px 0 50px 0
                 background-color: transparent
                 color: $primary-text-color
@@ -582,7 +601,7 @@ body
         border-radius: 50px
         margin-bottom: 10px
         cursor: pointer
-        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7)
+        // box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7)
         position: relative
         transition: $transition
         opacity: 0.7
@@ -726,6 +745,11 @@ body
         .item-header 
             font-size: 15px
 
+    .back-img
+
+        img
+            width: 80%
+
 @media screen and (max-width: 700px)
 
     .one 
@@ -770,16 +794,25 @@ body
                     margin: 35px 0
 
 
-    .item-fixed
+    // .item-fixed
 
-        .header-mail
-            top: 22%
+    //     .header-mail
+    //         top: 22%
 
     .last 
 
         .achivment 
             top: 30px
             right: 125px
+
+
+    .change
+
+        &:hover
+
+            span
+                opacity: 0 !important
+                width: 0
 
     
 
@@ -958,7 +991,7 @@ body
                     display: block
 
             .header-mail 
-                top: 25%
+                top: 20%
 
     .last 
         

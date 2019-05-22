@@ -136,6 +136,11 @@ body a:hover {
   opacity: 1;
 }
 
+.grid-header .item-header-2 .header-phone span {
+  position: absolute;
+  opacity: 0;
+}
+
 .grid-header .item-header-3 {
   -ms-grid-row: 1;
   -ms-grid-column: 4;
@@ -170,6 +175,11 @@ body a:hover {
   font-size: 20px;
   position: relative;
   top: -2px;
+}
+
+.grid-header .item-header-3 .header-mail span {
+  position: absolute;
+  opacity: 0;
 }
 
 .item-fixed .header-phone {
@@ -228,46 +238,18 @@ body a:hover {
   top: 0px !important;
 }
 
-.change:after {
-  content: '';
-  width: 120%;
-  height: 120%;
-  background-color: transparent;
-  border-radius: 0;
-  position: absolute;
-  top: -6px;
-  right: 60px;
-  z-index: -1;
+.change span {
+  right: 40px;
+  width: 0;
+  border-bottom: 2px solid white;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  border-bottom: 2px solid white;
-  opacity: 0;
+  white-space: nowrap;
 }
 
-.change:hover:after {
-  width: 180px;
-  left: auto;
-  right: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding-left: 20px;
-  opacity: 1;
-  font-size: 20px;
-}
-
-.header-phone.change:hover:after {
-  content: '+7 (916) 136-16-71';
-}
-
-.header-mail.change:hover:after {
-  content: 'fredswork@list.ru';
+.change:hover span {
+  opacity: 1 !important;
+  width: 230px;
 }
 
 .non-margin {
@@ -510,7 +492,6 @@ body a:hover {
 
 .about-site-section .about-site .about-zagolovok p {
   font-size: 40px;
-  text-transform: capitalize;
   margin: 30px 0 50px 0;
   background-color: transparent;
   color: white;
@@ -694,8 +675,6 @@ body a:hover {
   border-radius: 50px;
   margin-bottom: 10px;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
-          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
   position: relative;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -873,6 +852,9 @@ body a:hover {
   .grid-header .item-header {
     font-size: 15px;
   }
+  .back-img img {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -906,12 +888,13 @@ body a:hover {
     font-size: 25px;
     margin: 35px 0;
   }
-  .item-fixed .header-mail {
-    top: 22%;
-  }
   .last .achivment {
     top: 30px;
     right: 125px;
+  }
+  .change:hover span {
+    opacity: 0 !important;
+    width: 0;
   }
 }
 
@@ -1028,7 +1011,7 @@ body a:hover {
     display: block;
   }
   .grid-header .item-fixed .header-mail {
-    top: 25%;
+    top: 20%;
   }
   .last .achivment {
     right: 5px;

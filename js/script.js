@@ -8,11 +8,11 @@ window.addEventListener('load', () => {
         <div class="grid-header">
                 <div class="item-header item-header-1">{{contacts.name}}</div>
                 <div class="item-header item-header-2" v-bind:class=contacts.fixed>
-                    <a v-bind:href=contacts.link_phone_compact><p class="header-phone non-margin" v-bind:class="{ change: contacts.change, show_icon: contacts.show }"><img src="img/phone-icon.svg" ></p></a>
+                    <a v-bind:href=contacts.link_phone_compact><p class="header-phone non-margin" v-bind:class="{ change: contacts.change, show_icon: contacts.show }"><img src="img/phone-icon.svg" ><span>{{contacts.link_phone}}</span></p></a>
                     <a v-bind:href=contacts.link_phone_compact v-bind:class=contacts.seen>{{contacts.link_phone}}</a>
                 </div>
                 <div class="item-header item-header-3" v-bind:class=contacts.fixed>
-                <a v-bind:href=contacts.link_mail_compact><p class="header-mail non-margin" v-bind:class="{ change: contacts.change, show_icon: contacts.show}"><img src="img/envelope-icon.svg" ></p></a>
+                <a v-bind:href=contacts.link_mail_compact><p class="header-mail non-margin" v-bind:class="{ change: contacts.change, show_icon: contacts.show}"><img src="img/envelope-icon.svg" ><span>{{contacts.link_mail}}</span></p></a>
                     <a v-bind:href=contacts.link_mail_compact v-bind:class=contacts.seen>{{contacts.link_mail}}</a>
                 </div>
         </div>
@@ -58,8 +58,11 @@ window.addEventListener('load', () => {
         `,
         methods: {
             createLink: function(){
-                if (this.settings.link == 'antivor.ru') {
+                if (this.settings.link == 'Antivor.ru') {
                     return `https://antivor.ru/store/rstat/rstat-real-2d.html`;  
+                }
+                if (this.settings.link == 'Fitoestetika.ru') {
+                    return `http://fitoestetika.ru`;  
                 }
                 return `https://${this.settings.link}/`;
               }
@@ -78,7 +81,7 @@ window.addEventListener('load', () => {
 
     let obj_settings =  [
         {
-            link: 'kuhni-mytishi.ru',
+            link: 'Kuhni-mytishi.ru',
             text: `
             Kuhni-mytishi.ru — лендинг для компании, предоставляющей услуги,
              связанные с покупкой новой кухни. Примечательно, что тут я выступил в том числе
@@ -89,7 +92,7 @@ window.addEventListener('load', () => {
             `
         },
         {
-            link: 'fitoestetika.ru',
+            link: 'Fitoestetika.ru',
             text: `
             Fitoestetika.ru — одностраничный лендинг. Написан с использованием JQUery и сторонних плагинов, 
             таких как lightbox для создания галереи. Форма отправки сделана без помощи плагинов.
@@ -98,7 +101,7 @@ window.addEventListener('load', () => {
             `
         },
         {
-            link: 'vandeco.ru',
+            link: 'Vandeco.ru',
             text: `
             Vandeco.ru — интернет-магазин по продаже зеркал.
             Здесь реализована система региональности для покупателей по всей России. 
@@ -109,7 +112,7 @@ window.addEventListener('load', () => {
             `
         },
         {
-            link: 'antivor.ru',
+            link: 'Antivor.ru',
             text: `
             Antivor.ru — сайт-презентация компании. Сам сайт написан на Yii, так что тут у меня появился опыт работы с данным 
             фреймворком в частности и с MVC в общем. На странице контактов я работал с API яндекс карт и менял визуальное отображение
